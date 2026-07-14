@@ -594,7 +594,7 @@ const recipes = [
     name: "Nonna's Piselli",
     category: "sides",
     story: "Simple peas, done properly — one of my nonna's, from her years cooking in restaurants in the south of Italy. No fuss, just onion, butter and peas cooked low and slow until they go dark, glossy and sweet. I love these peas — so simple, and they come with great memories. They were always on the Christmas table, and because they were such a fixture, we have fond memories of Nonna exclaiming \"oh, I forgot the peas!\" in the middle of dessert, then bringing out the peas that had been sitting cooked and waiting on the stove the whole dinner.",
-    tags: ["sides", "family recipe", "Italian"],
+    tags: ["sides", "family recipe", "Italian", "vegetarian"],
     time: "10-15 min",
     serves: "4 (as a side)",
     ingredients: [
@@ -852,7 +852,11 @@ function renderGrid(){
     const qMatch = q === '' || matches(r, q);
     const tMatch = !activeTag || r.tags.includes(activeTag);
     return qMatch && tMatch;
-  }).sort((a, b) => (a.category === 'dessert') - (b.category === 'dessert'));
+  }).sort((a, b) => {
+    const incompleteDiff = (a.placeholder ? 1 : 0) - (b.placeholder ? 1 : 0);
+    if (incompleteDiff !== 0) return incompleteDiff;
+    return (a.category === 'dessert') - (b.category === 'dessert');
+  });
 
   countLine.textContent = filtered.length === recipes.length
     ? `${recipes.length} recipe${recipes.length !== 1 ? 's' : ''} in the anthology`
