@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Recipe Box</title>
+<title>Cucina Indooroopilly | Anthology of Eats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -302,15 +302,29 @@
   @media (prefers-reduced-motion: reduce){
     .card, #search{transition:none;}
   }
+
+  .intro-note{
+    font-size:15px;
+    line-height:1.65;
+    max-width:580px;
+    margin:22px 0 0;
+    padding:16px 20px;
+    background:rgba(255,210,63,0.25);
+    border-left:3px solid var(--butter);
+    border-radius:0 8px 8px 0;
+    color:rgba(43,33,24,0.85);
+  }
+  .intro-note strong{color:var(--tomato);}
 </style>
 </head>
 <body>
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">est. this year &mdash; still cooking</div>
-    <h1>The Recipe<br><span>Box.</span></h1>
-    <p class="sub">A living collection of the recipes worth keeping &mdash; where they came from, who made them first, and the notes that make them mine.</p>
+    <div class="eyebrow">Brisbane, QLD &mdash; 17 years and counting</div>
+    <h1>Cucina<br><span>Indooroopilly.</span></h1>
+    <p class="sub">An anthology of eats — the recipes worth keeping, where they came from, and the people who taught them to me first.</p>
+    <p class="intro-note">Cucina Indooroopilly is what this place has been called for as long as anyone's known me — <strong>seventeen years</strong> in Brisbane, cooking for whoever's at the table. This is where it all finally gets written down.</p>
 
     <div class="search-row">
       <input id="search" type="text" placeholder="Search recipes, ingredients, tags...">
@@ -322,7 +336,7 @@
   <div id="grid"></div>
 
   <footer>
-    Got a recipe to add? Send it through and it'll land in the box.
+    Cucina Indooroopilly &mdash; got a recipe to add? Send it through and it'll land in the anthology.
   </footer>
 </div>
 
@@ -511,7 +525,7 @@ function renderGrid(){
   });
 
   countLine.textContent = filtered.length === recipes.length
-    ? `${recipes.length} recipe${recipes.length !== 1 ? 's' : ''} in the box`
+    ? `${recipes.length} recipe${recipes.length !== 1 ? 's' : ''} in the anthology`
     : `${filtered.length} of ${recipes.length} recipes`;
 
   grid.innerHTML = '';
