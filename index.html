@@ -3,33 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>Cucina Indooroopilly | Anthology of Eats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#FFF3DC;
+    --cream:#FFF8ED;
     --charcoal:#241A10;
     --tomato:#F0421B;
     --butter:#FFC93C;
     --basil:#2E7D4F;
     --grape:#8B3F9E;
     --teal:#1B8A9E;
+    --wine:#8C1E3C;
+    --sky:#2F7DBB;
     --tomato-tint:#FDE1D3;
     --butter-tint:#FFF1BE;
     --basil-tint:#D9F0E1;
     --grape-tint:#F0DFF5;
     --teal-tint:#D6EEF2;
+    --wine-tint:#F3DBE1;
+    --sky-tint:#DAEBF6;
     --line: rgba(36,26,16,0.18);
   }
   *{box-sizing:border-box;}
+  html{background:#FFF8ED;}
   body{
     margin:0;
-    background-color:var(--cream);
-    background-image:
-      radial-gradient(circle at 24px 24px, rgba(240,66,27,0.08) 2.5px, transparent 2.5px),
-      radial-gradient(circle at 64px 64px, rgba(139,63,158,0.07) 2.5px, transparent 2.5px);
-    background-size:88px 88px;
+    background:var(--cream);
     color:var(--charcoal);
     font-family:'Work Sans', sans-serif;
     -webkit-font-smoothing:antialiased;
@@ -240,6 +242,36 @@
   .cat-baking{background:var(--butter); color:var(--charcoal); box-shadow:2px 2px 0 rgba(0,0,0,0.15);}
   .cat-sides{background:var(--basil);}
   .cat-drinks{background:var(--teal);}
+  .cat-labours{background:var(--wine);}
+  .cat-salads{background:var(--sky);}
+
+  /* PLACEHOLDER / STILL COOKING CARDS */
+  .card.placeholder-card{
+    border-style:dashed;
+    background:repeating-linear-gradient(135deg, rgba(36,26,16,0.03) 0px, rgba(36,26,16,0.03) 10px, transparent 10px, transparent 20px), #fff;
+  }
+  .card.placeholder-card:hover{
+    transform:translate(-2px,-3px) rotate(-0.5deg);
+  }
+  .soon-badge{
+    position:absolute;
+    top:-14px;
+    right:22px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    padding:5px 12px;
+    border-radius:6px;
+    background:#fff;
+    border:2px dashed var(--charcoal);
+    color:rgba(36,26,16,0.6);
+  }
+  .placeholder-text{
+    font-style:italic;
+    color:rgba(36,26,16,0.55) !important;
+  }
 
   /* MODAL */
   .overlay{
@@ -404,14 +436,27 @@ const CAT_COLORS = {
   "mains": "cat-mains",
   "baking": "cat-baking",
   "sides": "cat-sides",
-  "drinks": "cat-drinks"
+  "drinks": "cat-drinks",
+  "labours": "cat-labours",
+  "salads": "cat-salads"
 };
 const CAT_TINTS = {
   "dessert": "var(--grape-tint)",
   "mains": "var(--tomato-tint)",
   "baking": "var(--butter-tint)",
   "sides": "var(--basil-tint)",
-  "drinks": "var(--teal-tint)"
+  "drinks": "var(--teal-tint)",
+  "labours": "var(--wine-tint)",
+  "salads": "var(--sky-tint)"
+};
+const CAT_LABELS = {
+  "dessert": "dessert",
+  "mains": "mains",
+  "baking": "baking",
+  "sides": "sides",
+  "drinks": "drinks",
+  "labours": "labours of love",
+  "salads": "salads"
 };
 const CHIP_COLORS = [
   { bg: "#FDE1D3", border: "#F0421B" },
@@ -544,6 +589,186 @@ const recipes = [
       "Mix the pasta into the pan with the beans, then add a splash of the reserved pasta water to bring it together.",
       "Dress with the reserved parsley, parmigiano, and a squeeze of lemon juice if you like."
     ]
+  },
+  {
+    name: "Stuffed Eggplant",
+    category: "labours",
+    placeholder: true,
+    tags: ["labours of love", "still cooking"]
+  },
+  {
+    name: "Lasagne",
+    category: "labours",
+    placeholder: true,
+    tags: ["labours of love", "still cooking"]
+  },
+  {
+    name: "Nonna's Red Sauce",
+    category: "labours",
+    placeholder: true,
+    tags: ["labours of love", "still cooking", "family recipe"]
+  },
+  {
+    name: "Paella",
+    category: "labours",
+    placeholder: true,
+    tags: ["labours of love", "seafood", "still cooking"]
+  },
+  {
+    name: "Braesciola",
+    category: "labours",
+    placeholder: true,
+    tags: ["labours of love", "still cooking"]
+  },
+  {
+    name: "BBQ Chicken Wings",
+    category: "mains",
+    placeholder: true,
+    tags: ["mains", "still cooking"]
+  },
+  {
+    name: "Frittata",
+    category: "mains",
+    placeholder: true,
+    tags: ["mains", "breakfast", "still cooking"]
+  },
+  {
+    name: "Chicken Soup",
+    category: "mains",
+    placeholder: true,
+    tags: ["mains", "still cooking"]
+  },
+  {
+    name: "Chicken Schnitzels",
+    category: "mains",
+    placeholder: true,
+    tags: ["mains", "still cooking"]
+  },
+  {
+    name: "Crumbed Fish",
+    category: "mains",
+    placeholder: true,
+    tags: ["mains", "seafood", "still cooking"]
+  },
+  {
+    name: "Stuffed Calamari",
+    category: "mains",
+    placeholder: true,
+    tags: ["mains", "seafood", "still cooking"]
+  },
+  {
+    name: "Lemon Parsley Chicken",
+    category: "mains",
+    placeholder: true,
+    tags: ["mains", "still cooking"]
+  },
+  {
+    name: "Fresh Squid / Cuttlefish",
+    category: "mains",
+    placeholder: true,
+    tags: ["mains", "seafood", "still cooking"]
+  },
+  {
+    name: "Sardines",
+    category: "mains",
+    placeholder: true,
+    tags: ["mains", "seafood", "still cooking"]
+  },
+  {
+    name: "Chicken Marylands",
+    category: "mains",
+    placeholder: true,
+    tags: ["mains", "still cooking"]
+  },
+  {
+    name: "Green Bean Salad",
+    category: "salads",
+    placeholder: true,
+    tags: ["salads", "still cooking"]
+  },
+  {
+    name: "Pickled Onion",
+    category: "salads",
+    placeholder: true,
+    tags: ["salads", "still cooking"]
+  },
+  {
+    name: "Smashed Potatoes",
+    category: "salads",
+    placeholder: true,
+    tags: ["salads", "still cooking"]
+  },
+  {
+    name: "Simple Salad",
+    category: "salads",
+    placeholder: true,
+    tags: ["salads", "still cooking"]
+  },
+  {
+    name: "Radicchio Salad",
+    category: "salads",
+    placeholder: true,
+    tags: ["salads", "still cooking"]
+  },
+  {
+    name: "Fennel and Orange Salad",
+    category: "salads",
+    placeholder: true,
+    tags: ["salads", "still cooking"]
+  },
+  {
+    name: "Italian Coleslaw",
+    category: "salads",
+    placeholder: true,
+    tags: ["salads", "Italian", "still cooking"]
+  },
+  {
+    name: "Coleslaw",
+    category: "salads",
+    placeholder: true,
+    tags: ["salads", "still cooking"]
+  },
+  {
+    name: "Tabouli",
+    category: "salads",
+    placeholder: true,
+    tags: ["salads", "still cooking"]
+  },
+  {
+    name: "Mexican Salsa",
+    category: "sides",
+    placeholder: true,
+    tags: ["sides", "Mexican", "still cooking"]
+  },
+  {
+    name: "Salsa Verde",
+    category: "sides",
+    placeholder: true,
+    tags: ["sides", "Mexican", "still cooking"]
+  },
+  {
+    name: "Skagenröra Potatoes",
+    category: "sides",
+    placeholder: true,
+    tags: ["sides", "Swedish", "still cooking"]
+  },
+  {
+    name: "Gravad Lax",
+    category: "sides",
+    placeholder: true,
+    tags: ["sides", "Swedish", "seafood", "still cooking"]
+  },
+  {
+    name: "Cannelloni",
+    category: "labours",
+    placeholder: true,
+    tags: ["labours of love", "still cooking"]
+  },
+  {
+    name: "Homemade Meatballs",
+    category: "labours",
+    placeholder: true,
+    tags: ["labours of love", "family recipe", "still cooking"]
   }
 ];
 
@@ -577,9 +802,9 @@ function renderTagFilters(){
 
 function matches(r, q){
   const hay = [
-    r.name, r.category, r.story,
-    ...r.tags,
-    ...r.ingredients.map(i => i.item)
+    r.name, r.category, r.story || '',
+    ...(r.tags || []),
+    ...(r.ingredients || []).map(i => i.item)
   ].join(' ').toLowerCase();
   return hay.includes(q.toLowerCase());
 }
@@ -604,36 +829,59 @@ function renderGrid(){
 
   filtered.forEach((r, idx) => {
     const card = document.createElement('div');
-    card.className = 'card';
-    card.style.background = CAT_TINTS[r.category] || CAT_TINTS.mains;
+    card.className = 'card' + (r.placeholder ? ' placeholder-card' : '');
+    card.style.background = r.placeholder ? '#fff' : (CAT_TINTS[r.category] || CAT_TINTS.mains);
     card.onclick = () => openModal(r);
-    card.innerHTML = `
-      <div class="tab ${CAT_COLORS[r.category] || 'cat-mains'}">${r.category}</div>
-      <h3>${r.name}</h3>
-      <div class="meta">${r.time} &middot; serves ${r.serves}</div>
-      <p class="story">${r.story}</p>
-      <div class="chips">${r.tags.map((t, i) => {
-        const c = CHIP_COLORS[i % CHIP_COLORS.length];
-        return `<span class="chip" style="background:${c.bg};border-color:${c.border}">${t}</span>`;
-      }).join('')}</div>
-    `;
+
+    if (r.placeholder){
+      card.innerHTML = `
+        <div class="tab ${CAT_COLORS[r.category] || 'cat-mains'}">${CAT_LABELS[r.category] || r.category}</div>
+        <div class="soon-badge">Still cooking</div>
+        <h3>${r.name}</h3>
+        <p class="story placeholder-text">This one's still coming together — check back soon.</p>
+        <div class="chips">${(r.tags || []).map((t, i) => {
+          const c = CHIP_COLORS[i % CHIP_COLORS.length];
+          return `<span class="chip" style="background:${c.bg};border-color:${c.border}">${t}</span>`;
+        }).join('')}</div>
+      `;
+    } else {
+      card.innerHTML = `
+        <div class="tab ${CAT_COLORS[r.category] || 'cat-mains'}">${CAT_LABELS[r.category] || r.category}</div>
+        <h3>${r.name}</h3>
+        <div class="meta">${r.time} &middot; serves ${r.serves}</div>
+        <p class="story">${r.story}</p>
+        <div class="chips">${r.tags.map((t, i) => {
+          const c = CHIP_COLORS[i % CHIP_COLORS.length];
+          return `<span class="chip" style="background:${c.bg};border-color:${c.border}">${t}</span>`;
+        }).join('')}</div>
+      `;
+    }
     grid.appendChild(card);
   });
 }
 
 function openModal(r){
   const modal = document.getElementById('modalContent');
-  modal.innerHTML = `
-    <button class="close-btn" onclick="closeModal()">&times;</button>
-    <div class="tab ${CAT_COLORS[r.category] || 'cat-mains'}">${r.category}</div>
-    <h2>${r.name}</h2>
-    <div class="meta">${r.time} &middot; serves ${r.serves}</div>
-    <div class="story">${r.story}</div>
-    <h4>Ingredients</h4>
-    <ul>${r.ingredients.map(i => `<li><span>${i.item}</span><span class="amt">${i.amt}</span></li>`).join('')}</ul>
-    <h4>Method</h4>
-    <ol>${r.method.map(step => `<li>${step}</li>`).join('')}</ol>
-  `;
+  if (r.placeholder){
+    modal.innerHTML = `
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <div class="tab ${CAT_COLORS[r.category] || 'cat-mains'}">${CAT_LABELS[r.category] || r.category}</div>
+      <h2>${r.name}</h2>
+      <div class="story placeholder-text">Still cooking — ingredients and method are coming soon. Check back once this one's written up.</div>
+    `;
+  } else {
+    modal.innerHTML = `
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <div class="tab ${CAT_COLORS[r.category] || 'cat-mains'}">${CAT_LABELS[r.category] || r.category}</div>
+      <h2>${r.name}</h2>
+      <div class="meta">${r.time} &middot; serves ${r.serves}</div>
+      <div class="story">${r.story}</div>
+      <h4>Ingredients</h4>
+      <ul>${r.ingredients.map(i => `<li><span>${i.item}</span><span class="amt">${i.amt}</span></li>`).join('')}</ul>
+      <h4>Method</h4>
+      <ol>${r.method.map(step => `<li>${step}</li>`).join('')}</ol>
+    `;
+  }
   document.getElementById('overlay').classList.add('open');
 }
 function closeModal(){
