@@ -190,6 +190,15 @@
     transform:translate(-3px,-6px) rotate(-1deg);
     box-shadow:8px 10px 0 var(--line);
   }
+  .card .thumb{
+    width:calc(100% + 44px);
+    margin:-26px -22px 14px;
+    height:160px;
+    object-fit:cover;
+    display:block;
+    border-bottom:2px solid var(--charcoal);
+    border-radius:2px 14px 0 0;
+  }
   .tab{
     position:absolute;
     top:-14px;
@@ -310,6 +319,15 @@
     line-height:1;
   }
   .modal .tab{position:static; display:inline-block; margin-bottom:14px;}
+  .modal .thumb{
+    width:calc(100% + 80px);
+    margin:-40px -40px 20px;
+    max-height:280px;
+    object-fit:cover;
+    display:block;
+    border-bottom:3px solid var(--charcoal);
+    border-radius:4px 20px 0 0;
+  }
   .modal h2{
     font-family:'Fraunces', serif;
     font-weight:600;
@@ -515,6 +533,7 @@ const recipes = [
   {
     name: "Pasta e Broccoli",
     category: "mains",
+    image: "pasta-e-broccoli.jpg",
     story: "One of three pastas built on the same bones — garlic, onion and parsley sautéed low and slow, then simmered with whatever's the star of the day. Here it's broccoli, softened right down until it's almost a sauce.",
     tags: ["pasta", "weeknight", "Italian", "vegetarian"],
     time: "30 min",
@@ -526,6 +545,7 @@ const recipes = [
       { amt: "1 small", item: "onion, chopped (brown, white, leek or spring onion)" },
       { amt: "to taste", item: "parsley stalks, chopped (leaves reserved for dressing)" },
       { amt: "1 head", item: "broccoli, cut into small florets" },
+      { amt: "1 cup", item: "peas (optional)" },
       { amt: "1", item: "lemon, zested (juice optional, to finish)" },
       { amt: "1/2 cup", item: "white wine" },
       { amt: "1 cup", item: "pasta water, reserved" },
@@ -534,7 +554,7 @@ const recipes = [
     method: [
       "Put a large pot of salted water on to boil for the pasta.",
       "Sauté the garlic, onion and chopped parsley stalks in olive oil over low-medium heat until softened.",
-      "Add the broccoli florets and lemon zest, then pour in the white wine.",
+      "Add the broccoli florets, peas (if using), and lemon zest, then pour in the white wine.",
       "Simmer slowly until the broccoli is tender and starting to break down.",
       "Meanwhile, cook the pasta in the separate pot until just shy of al dente.",
       "Drain the pasta, reserving 1/2 to 1 cup of the pasta water.",
@@ -1102,6 +1122,7 @@ function renderGrid(){
       `;
     } else {
       card.innerHTML = `
+        ${r.image ? `<img class="thumb" src="${r.image}" alt="${r.name}">` : ''}
         <div class="tab ${CAT_COLORS[r.category] || 'cat-mains'}">${CAT_LABELS[r.category] || r.category}</div>
         <h3>${r.name}</h3>
         <div class="meta">${r.time} &middot; serves ${r.serves}</div>
@@ -1128,6 +1149,7 @@ function openModal(r){
   } else {
     modal.innerHTML = `
       <button class="close-btn" onclick="closeModal()">&times;</button>
+      ${r.image ? `<img class="thumb" src="${r.image}" alt="${r.name}">` : ''}
       <div class="tab ${CAT_COLORS[r.category] || 'cat-mains'}">${CAT_LABELS[r.category] || r.category}</div>
       <h2>${r.name}</h2>
       <div class="meta">${r.time} &middot; serves ${r.serves}</div>
