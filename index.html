@@ -18,6 +18,7 @@
     --teal:#1B8A9E;
     --wine:#8C1E3C;
     --sky:#2F7DBB;
+    --olive:#748237;
     --tomato-tint:#FDE1D3;
     --butter-tint:#FFF1BE;
     --basil-tint:#D9F0E1;
@@ -25,6 +26,7 @@
     --teal-tint:#D6EEF2;
     --wine-tint:#F3DBE1;
     --sky-tint:#DAEBF6;
+    --olive-tint:#E8EDD6;
     --line: rgba(36,26,16,0.18);
   }
   *{box-sizing:border-box;}
@@ -244,6 +246,7 @@
   .cat-drinks{background:var(--teal);}
   .cat-labours{background:var(--wine);}
   .cat-salads{background:var(--sky);}
+  .cat-dips{background:var(--olive);}
 
   /* PLACEHOLDER / STILL COOKING CARDS */
   .card.placeholder-card{
@@ -438,7 +441,8 @@ const CAT_COLORS = {
   "sides": "cat-sides",
   "drinks": "cat-drinks",
   "labours": "cat-labours",
-  "salads": "cat-salads"
+  "salads": "cat-salads",
+  "dips": "cat-dips"
 };
 const CAT_TINTS = {
   "dessert": "var(--grape-tint)",
@@ -447,7 +451,8 @@ const CAT_TINTS = {
   "sides": "var(--basil-tint)",
   "drinks": "var(--teal-tint)",
   "labours": "var(--wine-tint)",
-  "salads": "var(--sky-tint)"
+  "salads": "var(--sky-tint)",
+  "dips": "var(--olive-tint)"
 };
 const CAT_LABELS = {
   "dessert": "dessert",
@@ -456,7 +461,8 @@ const CAT_LABELS = {
   "sides": "sides",
   "drinks": "drinks",
   "labours": "labours of love",
-  "salads": "salads"
+  "salads": "salads",
+  "dips": "dips"
 };
 const CHIP_COLORS = [
   { bg: "#FDE1D3", border: "#F0421B" },
@@ -623,8 +629,38 @@ const recipes = [
   {
     name: "Nonna's Red Sauce",
     category: "labours",
-    placeholder: true,
-    tags: ["labours of love", "still cooking", "family recipe"]
+    story: "This one carries a lot of nostalgia. As kids, Nonna's cousins and my parents' generation would get the whole extended family together once a year to turn fresh tomatoes into passata — enough bottles to last a year in the shed or cupboard. We don't do the tomatoes anymore (my brother still does), but this sauce is what all of that was for: family, being together, good meals, and enjoying each other's company through the process of cooking. I used to make it every week as a kid. I don't anymore — it takes time, and I don't eat as rich as I used to — but it's still full of memories, and it's still delicious. You can make it vegetarian, but I usually cook it with some kind of meat — chicken marylands or beef on the bone are my go-tos. (Meatballs work too, but that'll be its own recipe.)",
+    tags: ["labours of love", "family recipe", "Italian"],
+    time: "3-4 hours",
+    serves: "10-12 (makes a big batch)",
+    ingredients: [
+      { amt: "4-6 cloves", item: "garlic, chopped" },
+      { amt: "1", item: "onion, chopped" },
+      { amt: "1", item: "carrot, cubed" },
+      { amt: "1 stick", item: "celery, cubed about the same size as the carrot (optional — leave out if you don't have it, and the carrot can go too if needed)" },
+      { amt: "1-2", item: "bay leaves" },
+      { amt: "to taste", item: "olive oil" },
+      { amt: "4-6", item: "chicken marylands, OR 500-600g beef on the bone, raw, OR a batch of Polpette (see Homemade Meatballs recipe) in place of the meat (or leave out for vegetarian)" },
+      { amt: "3/4 cup", item: "red wine" },
+      { amt: "~2 tbsp", item: "salt (to taste — I go by feel)" },
+      { amt: "~1 tbsp", item: "dried oregano (to taste — plus more later)" },
+      { amt: "4 small cans", item: "crushed tomatoes, plain (no flavouring) — Annalisa is my brand of choice" },
+      { amt: "4 jars", item: "passata — Mutti is my brand of choice" },
+      { amt: "1 jar's worth", item: "water, from rinsing out each empty passata jar (don't waste the tomato left behind)" },
+      { amt: "a couple", item: "fresh tomatoes, chopped (optional, added early for texture)" }
+    ],
+    method: [
+      "Chop the garlic, onion, carrot and celery (if using) into roughly matching cube sizes.",
+      "Sauté them in olive oil with the bay leaves, along with the salt and oregano, until everything is sweaty and see-through.",
+      "Add the meat of choice, raw and on the bone (chicken marylands or beef), and brown it in the pan. If you're using Polpette (meatballs) instead, skip this step for now — you'll add them in later.",
+      "Deglaze the pan with the red wine.",
+      "If you're using them, stir in a couple of chopped fresh tomatoes here for extra texture.",
+      "Add the crushed tomatoes and the passata. Rinse out each empty passata jar with a little water and tip that in too — it's about a jar's worth in total, and you don't want to waste any of that tomato.",
+      "If you're making this with meatballs (see Polpette) instead of meat on the bone, add them in now rather than with the vegetables earlier, so they hold their shape better.",
+      "Season again with salt and a bit more oregano.",
+      "Bring to a boil over moderate heat, then turn down to low. Cook with the lid half on, half off, stirring occasionally.",
+      "Let it blip away for 3-4 hours, checking and stirring as it goes."
+    ]
   },
   {
     name: "Paella",
@@ -842,10 +878,37 @@ const recipes = [
     tags: ["labours of love", "still cooking"]
   },
   {
-    name: "Homemade Meatballs",
+    name: "Homemade Meatballs (Polpette)",
     category: "labours",
-    placeholder: true,
-    tags: ["labours of love", "family recipe", "still cooking"]
+    story: "A standalone favourite, or the meat component in Nonna's Red Sauce if you want to swap out the chicken or beef. It's also the same base technique used for the stuffed eggplant. Lamb is my go-to mince, but beef or a pork-and-veal combo work just as well — the method stays the same either way.",
+    tags: ["labours of love", "family recipe"],
+    time: "40 min + 30 min resting",
+    serves: "4-6",
+    ingredients: [
+      { amt: "1", item: "white onion, finely chopped" },
+      { amt: "2 cloves", item: "garlic, chopped (optional, but recommended)" },
+      { amt: "to taste", item: "parsley stalks, chopped (a few leaves too, if you like)" },
+      { amt: "1", item: "lemon, zested" },
+      { amt: "1", item: "egg" },
+      { amt: "500-750g", item: "mince — lamb, beef, or a pork and veal combination" },
+      { amt: "1 tsp", item: "Vegeta seasoning (it's strong, so don't overdo it)" },
+      { amt: "to taste", item: "salt (see note below)" },
+      { amt: "to taste", item: "chilli (optional)" },
+      { amt: "to taste", item: "parmesan, finely grated yourself (avoid pre-shredded flakes from the fridge shelf — if buying pre-grated, get the fine deli-style kind)" },
+      { amt: "1/2-1 cup", item: "breadcrumbs (gluten-free), depending on how wet the mix is" }
+    ],
+    method: [
+      "Finely chop the onion, garlic and parsley stalks into a mixing bowl (precook the onion first if you've got a sensitive stomach — otherwise it goes in raw).",
+      "Add the lemon zest, egg and mince.",
+      "Add the Vegeta seasoning, chilli to taste, and the grated parmesan. Go easy on the salt here — between salt, cheese and Vegeta, it's best to lean on only two of the three rather than all three, or it gets too much.",
+      "Mix everything together with your hands.",
+      "Add the breadcrumbs, starting with about 1/2 cup and adding more if the mixture is too wet, until it holds together and is easy to shape.",
+      "Fry off a small piece of the mixture to taste-test before shaping the whole batch — check the seasoning and add more salt or garlic to the mix if it needs it.",
+      "Roll into shape — golf-ball sized is the usual, though you can go smaller, or press them into patties instead.",
+      "Let them rest for about 30 minutes before cooking.",
+      "Cook on the barbecue or pan-fry until cooked through.",
+      "Serve with a salad, a sauce, or a dip of your choice. If using them in the red sauce instead of meat on the bone, add them in after the tomatoes rather than at the same time as the vegetables, so they hold their shape."
+    ]
   },
   {
     name: "Spaghetti Marinara",
@@ -881,6 +944,36 @@ const recipes = [
       "Add the pasta to the sauce along with a splash of the reserved pasta water to bring it together.",
       "Finish with a drizzle of olive oil, the lemon juice, and the reserved parsley leaves. Add parmigiano if you like it on seafood pasta — some people don't, but it's very good with it."
     ]
+  },
+  {
+    name: "Hummus",
+    category: "dips",
+    placeholder: true,
+    tags: ["dips", "vegetarian", "still cooking"]
+  },
+  {
+    name: "Olive Tapenade",
+    category: "dips",
+    placeholder: true,
+    tags: ["dips", "vegetarian", "still cooking"]
+  },
+  {
+    name: "Tzatziki",
+    category: "dips",
+    placeholder: true,
+    tags: ["dips", "vegetarian", "still cooking"]
+  },
+  {
+    name: "Dill Sauce",
+    category: "dips",
+    placeholder: true,
+    tags: ["dips", "dressing", "vegetarian", "still cooking"]
+  },
+  {
+    name: "Caesar Salad",
+    category: "mains",
+    placeholder: true,
+    tags: ["mains", "still cooking"]
   }
 ];
 
