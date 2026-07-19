@@ -349,11 +349,17 @@
     justify-content:space-between;
     gap:12px;
   }
+  .modal ul li > span:first-child{
+    flex:1;
+  }
   .modal ul li .amt{
     font-family:'JetBrains Mono', monospace;
     font-weight:600;
     color:var(--basil);
-    white-space:nowrap;
+    white-space:normal;
+    text-align:right;
+    max-width:48%;
+    flex-shrink:0;
   }
   .modal ol{margin:0; padding-left:22px;}
   .modal ol li{
@@ -711,8 +717,49 @@ const recipes = [
   {
     name: "Chicken Soup",
     category: "mains",
-    placeholder: true,
-    tags: ["mains", "still cooking"]
+    story: "Mum always made amazing soup growing up — this is my own twist on it, built up over years of making my own version.",
+    tags: ["mains", "family recipe", "soup"],
+    time: "~2 hours",
+    serves: "6-8 (large pot)",
+    ingredients: [
+      { amt: "1", item: "onion, chopped (white or brown preferred; spring onion, leek or red onion also work, or leave it out)" },
+      { amt: "4-6 cloves", item: "garlic, chopped" },
+      { amt: "1-2", item: "carrots, chopped" },
+      { amt: "1/2 bunch", item: "celery, chopped — or silver beet stalks if you haven't got celery (use the stalks here, leaves go in later)" },
+      { amt: "1", item: "broccoli stalk, woody edges trimmed and chopped (florets reserved for later)" },
+      { amt: "1 punnet", item: "cherry tomatoes, halved (optional)" },
+      { amt: "1-2", item: "bay leaves" },
+      { amt: "to taste", item: "olive oil" },
+      { amt: "to taste", item: "parsley stalks, chopped" },
+      { amt: "1", item: "lemon, zested" },
+      { amt: "3-4", item: "chicken marylands" },
+      { amt: "to taste", item: "salt" },
+      { amt: "1 tbsp/litre, scaled back", item: "Vegeta seasoning — follow the packet, but use a little less than stated since you're also using salt and cheese" },
+      { amt: "optional, a little", item: "dried oregano (only if using cherry tomatoes)" },
+      { amt: "enough to fill the pot 3/4 (roughly 4.5-6L in a large pot)", item: "water" },
+      { amt: "1/2 bunch", item: "silver beet leaves, chopped" },
+      { amt: "1", item: "broccoli, cut into florets" },
+      { amt: "1/2 box", item: "short pasta (penne or small rigatoni)" },
+      { amt: "6", item: "eggs" },
+      { amt: "a good handful", item: "parmesan, grated" },
+      { amt: "to taste", item: "pepper" }
+    ],
+    method: [
+      "Chop the onion, garlic, carrots, celery (or silver beet stalks), and the trimmed broccoli stalk. If using cherry tomatoes, halve those too and add them at this stage.",
+      "Sauté everything together with the bay leaves in olive oil, lid on — this stops it drying out and speeds things along.",
+      "Add the chicken marylands, parsley stalks and lemon zest. Add the salt now too. If you're using tomatoes, a little oregano can go in here as well — otherwise, skip the oregano.",
+      "Let it all cook together with the lid on for about 10 minutes, letting the chicken start to brown a little. Stir to make sure nothing's catching on the bottom.",
+      "Add the water to fill the pot about three-quarters full, along with a bit more olive oil, a little more salt, and the Vegeta.",
+      "Bring to a boil, stirring to make sure nothing's sticking, then turn down to a simmer with the lid half on, half off. Cook for about 1 to 1.5 hours, depending on how much chicken you've used.",
+      "Fish the chicken marylands out and let them cool for 5-10 minutes in a separate bowl.",
+      "Take the meat off the bones. Each maryland has a drumstick bone, the shorter thigh bone, and a small sharp bone — keep track of how many marylands you used so you know how many of each bone to remove. The gristle and knobbly bits can stay in the soup; they add flavour and will cook down further.",
+      "Return the chicken meat to the soup. If any of it isn't fully cooked yet, that's fine — it'll keep cooking.",
+      "About 8-10 minutes before serving, add the silver beet leaves, broccoli florets, and the pasta. Put the lid back on.",
+      "While that cooks, beat the eggs together with the grated parmesan and pepper until well combined.",
+      "Once the pasta is al dente (check the packet), take the lid off and give everything a stir. Slowly pour in the beaten egg mixture while stirring continuously, so it scrambles through the soup rather than clumping.",
+      "Give it a final stir, pop the lid on briefly, then turn off the heat.",
+      "Check for salt and pepper before serving. Add more cheese on top if you like, though there's already plenty in from the egg mixture."
+    ]
   },
   {
     name: "Chicken Schnitzels",
